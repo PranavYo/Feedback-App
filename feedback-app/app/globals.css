@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;300;400;500;600;700;800&display=swap');
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+.page-container {
+  font-family: 'Prompt', sans-serif;
+  background: #F7F8FD;
+  padding: 2rem;
+  padding-top: 4rem;
+  height: 100vh;
+  overflow: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
