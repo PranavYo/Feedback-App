@@ -3,6 +3,6 @@ import { FilterContextType } from "@/app/types/FilterContextType"
 import { createContext } from "react"
 
 
-const FilterContext = createContext<FilterContextType | null>(null)
+const FilterContext = createContext<any>(null)
 
 export default FilterContext

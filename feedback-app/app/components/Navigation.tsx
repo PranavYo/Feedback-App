@@ -7,7 +7,7 @@ import { FilterContextType } from '../types/FilterContextType';
 
 const Navigation = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const {filterId, setFilterId} = useContext(FilterContext) as FilterContextType
+  const {filterId, setFilterId} = useContext(FilterContext)
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -60,7 +60,7 @@ const Navigation = () => {
   ]
 
   return (
-    <nav className={styles.nav}>
+    <nav className={classNames(styles.nav, {[styles.z_index]: isNavOpen})}>
       <div className={classNames(styles.mobile_header)}>
           <div className={styles.inner}>
               <span className='font-bold text-[1.2rem]'> Eqaim</span>
@@ -68,8 +68,8 @@ const Navigation = () => {
           </div>
       </div>
       <button className={styles.toggleButton} onClick={toggleNav}>
-        {!isNavOpen && <svg width="20" height="17" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="evenodd"><path d="M0 0h20v3H0zM0 7h20v3H0zM0 14h20v3H0z"/></g></svg>}
-        {isNavOpen && <svg width="18" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M15.01.368l2.122 2.122-6.01 6.01 6.01 6.01-2.122 2.122L9 10.622l-6.01 6.01L.868 14.51 6.88 8.5.87 2.49 2.988.368 9 6.38 15.01.37z" fill="#FFF" fill-rule="evenodd"/></svg>}
+        {!isNavOpen && <svg width="20" height="17" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fillRule="evenodd"><path d="M0 0h20v3H0zM0 7h20v3H0zM0 14h20v3H0z"/></g></svg>}
+        {isNavOpen && <svg width="18" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M15.01.368l2.122 2.122-6.01 6.01 6.01 6.01-2.122 2.122L9 10.622l-6.01 6.01L.868 14.51 6.88 8.5.87 2.49 2.988.368 9 6.38 15.01.37z" fill="#FFF" fillRule="evenodd"/></svg>}
       </button>
       <div
         className={classNames(styles.navContent, {
