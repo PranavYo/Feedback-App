@@ -37,7 +37,7 @@ export default function FeedbackDetails() {
             {
               openedFeedback.comments?.map((item: any, index: number) => {
                 return (
-                  <div className="item-container">
+                  <div key={item.id} className="item-container">
                     <div className='left-img-container'>
                       <div className="rounded-container">
                         <img src={item.user.image.slice(1)} alt="user-image" />

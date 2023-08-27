@@ -85,7 +85,7 @@ export default function MainContent() {
     if(isFirstRender.current) {
       isFirstRender.current = false
     }
-    else {router.push('/components/feedback-detail');console.log(openedFeedback);}
+    else {router.push('/components/feedback-detail');}
   }, [openedFeedback])
 
   return (
