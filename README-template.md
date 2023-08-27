@@ -29,19 +29,19 @@ Users should be able to:
 ### Steps
 - Write down the detailed steps here
 
-# Requirements
+## Requirements
 - Node.js 16.14 or later.
 - npm. (npm install -g npm)
 - Verify installs with "node -v" and "npm -v".
 
-# Running next.js app
+## Running next.js app
 - Clone the project.
-- Then "cd feedback-app".
+- Run "cd feedback-app" command to go into "feedback-app".
 - Run "npm install" command.
 - Verify the installs by "npm list" command.
 - Run "npm run dev" to start the localhost server at port 3000.
 
-# Connecting to MongoDB
+## Connecting to MongoDB
 - First create a MongoDb atlas account if not already.
 - Deploy a free cluster. (Creating a cluster will automatically deploy it.)
 - Create Database access credentions.
@@ -52,10 +52,11 @@ Users should be able to:
 - Click on Add Current IP Address.
 - Then choose Drivers method to connect with application.
 - Choose Node.js driver and copy your connection string.
-- Then in the file "feedback-app/app/api/index-express.js" replace with url present, and enter your password of "Database access credentions" by removing "<password>", make sure to also remove "<>" in that string.
+- Then in the file "feedback-app/app/api/index-express.js" replace with url present, and enter your password of "Database access credentions" by removing "password", make sure to also remove "<>" in that string.
 
-# Running local MongoDB server
+## Running local MongoDB server
 - Go to "feedback-app/app/api"
 - Execute "node index-express.js" command.
 - "Successfully connected to Atlas" and "app listening on port http://localhost:5000" should be displayed in the terminal.
 - Check connection status on "http://localhost:5000/status"
+- If you are getting time-out, then reload your cluster in MongoDB Atlas and re-add the IP Address by clicking on Add Current IP Address. Then try running command again. 
