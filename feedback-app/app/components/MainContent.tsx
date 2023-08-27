@@ -1,13 +1,18 @@
 "use client"
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import './MainContent.scss'
 import FilterContext from '../context/filters/FilterContext'
 import ProductRequest from '../types/Feedback.interface'
 import Link from 'next/link'
+import FeedbackContent from './FeedbackContent'
+import { useRouter } from 'next/navigation'
 
 export default function MainContent() {
 
-  const {filterId, feedbackList, getAllFeedbacks} = useContext(FilterContext)
+  const router = useRouter()
+  const isFirstRender = useRef(true);
+
+  const {filterId, feedbackList, getAllFeedbacks, getFeedbackById, openedFeedback} = useContext(FilterContext)
 
   const [sortById, setSortById] = useState('most_votes')
   const [modifiesList, setModifiesList] = useState(feedbackList)
@@ -70,8 +75,21 @@ export default function MainContent() {
     },
   ]
 
+  const openFeedback = async (id: number) => {
+    // await getFeedbackById(id)
+    router.push(`/components/feedback-detail?id=${id}`);
+  }
+
+
+  useEffect(() => {
+    if(isFirstRender.current) {
+      isFirstRender.current = false
+    }
+    else {router.push('/components/feedback-detail');console.log(openedFeedback);}
+  }, [openedFeedback])
+
   return (
-    <div className='content-container'>
+    <div className='main-content-container'>
 
       <div className="header-container">
         <div className="left-container">
@@ -122,26 +140,10 @@ export default function MainContent() {
         modifiesList.length > 0 &&
         <div className="list-container">
           {
-            modifiesList.map((feedback: ProductRequest, index: number) => {
+            modifiesList.map((feedback: ProductRequest) => {
               return (
-                <div key={index} className='item'>
-                  <div className="container-1">
-                    <button className="upvote-container">
-                      <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 6l4-4 4 4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
-                      <span>{feedback.upvotes}</span>
-                    </button>
-                    <div className="info-container">
-                      <span className='sp-1'>{feedback.title}</span>
-                      <span className='sp-2'>{feedback.description}</span>
-                      <div className='category-container'>
-                        <span>{feedback.category}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="container-2">
-                    <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.62 16H1.346l.902-.91c.486-.491.79-1.13.872-1.823C1.036 11.887 0 9.89 0 7.794 0 3.928 3.52 0 9.03 0 14.87 0 18 3.615 18 7.455c0 3.866-3.164 7.478-8.97 7.478-1.017 0-2.078-.137-3.025-.388A4.705 4.705 0 012.62 16z" fill="#CDD2EE" fillRule="nonzero"/></svg>
-                    <span>{feedback.comments?.length}</span>
-                  </div>
+                <div key={feedback.id} className='item-container' onClick={() => openFeedback(feedback.id)}>
+                  <FeedbackContent id={feedback.id} title={feedback.title} category={feedback.category} upvotes={feedback.upvotes} comments={feedback.comments} description={feedback.description} status={feedback.status} />
                 </div>
               )
             })

@@ -94,7 +94,7 @@ export default function AddFeedback() {
                         {isDescTouched && <span className="error-message">Description can't be empty</span>}
                     </div>
                     <div className="btns">
-                        <button className='cancel-btn'>Cancel</button>
+                        <button className='cancel-btn' onClick={() => router.push('/')}>Cancel</button>
                         <button type='submit' className='submit-btn'>Add Feedback</button>
                     </div>
                 </form>

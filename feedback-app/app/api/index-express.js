@@ -1,14 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require("mongodb");
 
-const { ProductRequest } = require("./models/ProductRequest");
-// const { dataBaseCollection, connectToMongo } = require('./mongodb');
-
 // Replace the following with your Atlas connection string                                                                                                                                        
-const url = "mongodb+srv://dpranav222:dpranav222@cluster0.2fnojzz.mongodb.net/?retryWrites=true&w=majority";
+const url = "paste_your_connection_string_here";
 
 // Connect to your Atlas cluster
 const client = new MongoClient(url);
@@ -18,6 +14,8 @@ const client = new MongoClient(url);
 // will create them automatically when you first write data.
 const dbName = "feedback-app";
 const collectionName = "product-request";
+
+
 
 let database;
 let collection;
@@ -94,6 +92,25 @@ connectToMongo().then(() => {
             const newProductRequests = newDataBaseArray[0].productRequests
 
             res.json(newProductRequests);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    })
+
+    app.get('/api/product-requests/:id', async (req, res) => {
+        try {
+            const requestId = parseInt(req.params.id);
+            const dataBaseArray = await collection.find({}).toArray()
+            const productRequests = dataBaseArray[0].productRequests
+
+            const item = productRequests.find(item => item.id === requestId);
+
+            if (!item) {
+                return res.status(404).json({ error: 'Product Request not found' });
+            }
+
+            res.json(item)
         }
         catch(err) {
             console.log(err);

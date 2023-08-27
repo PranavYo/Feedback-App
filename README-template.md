@@ -29,21 +29,33 @@ Users should be able to:
 ### Steps
 - Write down the detailed steps here
 
+# Requirements
+- Node.js 16.14 or later.
+- npm. (npm install -g npm)
+- Verify installs with "node -v" and "npm -v".
+
+# Running next.js app
+- Clone the project.
+- Then "cd feedback-app".
+- Run "npm install" command.
+- Verify the installs by "npm list" command.
+- Run "npm run dev" to start the localhost server at port 3000.
+
 # Connecting to MongoDB
-- First create a MongoDb atlas account.
-- Deploy a free cluster.
-- Create Access credentions
-- Create a Database and a collection in that cluster
-- Insert the data present in data.json directly, file provided by you.
-- After that click on Connect, to connect with cluster
-- Click on Add Current IP Address
-- Then choose Drivers method to connect with application
-- Choose Node.js driver and copy your connection string
-- Then in the file "feedback-app/app/api/mongodb/index.js" replace with url present, and enter your password by removing <password>
-- Go to "feedback-app/app/api/mongodb" execute "node index.js" command.
+- First create a MongoDb atlas account if not already.
+- Deploy a free cluster. (Creating a cluster will automatically deploy it.)
+- Create Database access credentions.
+- Create a Database and collection in that cluster.
+- Recommended to use Database name: "feedback-app" and Collection name: "product-request". If you choose your own names then make sure you replace the "dbName" and "collectionName" with your respective names in "feedback-app/app/api/index-express.js".
+- Insert the data present in "data.json" (file provided by you) directly into collection. Do not change any format, directly copy-paste the data, they will provide input for "json file".
+- After that click on Connect, to connect with cluster.
+- Click on Add Current IP Address.
+- Then choose Drivers method to connect with application.
+- Choose Node.js driver and copy your connection string.
+- Then in the file "feedback-app/app/api/index-express.js" replace with url present, and enter your password of "Database access credentions" by removing "<password>", make sure to also remove "<>" in that string.
 
 # Running local MongoDB server
 - Go to "feedback-app/app/api"
 - Execute "node index-express.js" command.
-- Local server would be running on "http://localhost:5000"
+- "Successfully connected to Atlas" and "app listening on port http://localhost:5000" should be displayed in the terminal.
 - Check connection status on "http://localhost:5000/status"
