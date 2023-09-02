@@ -1,6 +1,9 @@
 
 
-https://github.com/PranavYo/Feedback-App/assets/76433307/9b0c306d-ca46-4a98-b280-93d22eea44b2
+
+https://github.com/PranavYo/Feedback-App/assets/76433307/90f32471-68fd-4bba-ba75-027f2cdea204
+
+
 
 # Eqaim - SASS feedback app
 
