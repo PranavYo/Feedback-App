@@ -63,7 +63,7 @@ const Navigation = () => {
     <nav className={classNames(styles.nav, {[styles.z_index]: isNavOpen})}>
       <div className={classNames(styles.mobile_header)}>
           <div className={styles.inner}>
-              <span className='font-bold text-[1.2rem]'> Eqaim</span>
+              <span className='font-bold text-[1.2rem]'>Pranav</span>
               <span style={{opacity: '0.8'}}>Feedback Board</span>
           </div>
       </div>
@@ -78,7 +78,7 @@ const Navigation = () => {
       >
         <div className={classNames(styles.block, styles.block_1)}>
             <div className={styles.inner}>
-                <span className='font-bold text-[1.2rem]'> Eqaim</span>
+                <span className='font-bold text-[1.2rem]'>Pranav</span>
                 <span style={{opacity: '0.8'}}>Feedback Board</span>
             </div>
         </div>

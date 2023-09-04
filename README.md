@@ -1,4 +1,36 @@
-# Eqaim - SASS feedback app
+## Requirements
+- Node.js 16.14 or later.
+- npm. (npm install -g npm)
+- Verify installs with "node -v" and "npm -v".
+
+## Running next.js app
+- Clone the project.
+- Run "cd feedback-app" command to go into "feedback-app".
+- Run "npm install" command.
+- Verify the installs by "npm list" command.
+- Run "npm run dev" to start the localhost server at port 3000.
+
+## Connecting to MongoDB
+- First create a MongoDb atlas account if not already.
+- Deploy a free cluster. (Creating a cluster will automatically deploy it.)
+- Create Database access credentions.
+- Create a Database and collection in that cluster.
+- Recommended to use Database name: "feedback-app" and Collection name: "product-request". If you choose your own names then make sure you replace the "dbName" and "collectionName" with your respective names in "feedback-app/app/api/index-express.js".
+- Insert the data present in "data.json" (file provided by you) directly into collection. Do not change any format, directly copy-paste the data, they will provide input for "json file".
+- After that click on Connect, to connect with cluster.
+- Click on Add Current IP Address.
+- Then choose Drivers method to connect with application.
+- Choose Node.js driver and copy your connection string.
+- Then in the file "feedback-app/app/api/index-express.js" replace with url present, and enter your password of "Database access credentions" by removing "password", make sure to also remove "<>" in that string.
+
+## Running local MongoDB server
+- Go to "feedback-app/app/api"
+- Execute "node index-express.js" command.
+- "Successfully connected to Atlas" and "app listening on port http://localhost:5000" should be displayed in the terminal.
+- Check connection status on "http://localhost:5000/status"
+- If you are getting time-out, then reload your cluster in MongoDB Atlas and re-add the IP Address by clicking on Add Current IP Address. Then try running command again. 
+
+<!-- # Eqaim - SASS feedback app
 
 ## Welcome! 👋
 
@@ -61,5 +93,5 @@ The template provides a guide for what to add. Please feel free to edit our temp
 
 ## Submitting your solution
 
-Share the github repository URL with us and update the `README-template.md` file with right instructions and steps to run the project in local machine.
+Share the github repository URL with us and update the `README-template.md` file with right instructions and steps to run the project in local machine. -->
 
