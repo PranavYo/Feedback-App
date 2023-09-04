@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Requirements
 - Node.js 16.14 or later.
 - npm. (npm install -g npm)
@@ -31,6 +32,16 @@
 - If you are getting time-out, then reload your cluster in MongoDB Atlas and re-add the IP Address by clicking on Add Current IP Address. Then try running command again. 
 
 <!-- # Eqaim - SASS feedback app
+=======
+
+
+
+https://github.com/PranavYo/Feedback-App/assets/76433307/90f32471-68fd-4bba-ba75-027f2cdea204
+
+
+
+# Eqaim - SASS feedback app
+>>>>>>> 123c620c0a345f987312d395741fa49674bd97b3
 
 ## Welcome! 👋
 
